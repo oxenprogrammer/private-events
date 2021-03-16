@@ -14,7 +14,7 @@
   <nav
   class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top"
 >
-  <a class="navbar-brand" href="#">Club House</a>
+  <a class="navbar-brand" href="#">Private Events</a>
   <button
     class="navbar-toggler"
     type="button"
@@ -47,5 +47,6 @@
   </div>
 </nav>
     <%= yield %>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
