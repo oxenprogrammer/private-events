@@ -11,7 +11,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      # Handle login
+      flash[:success] = 'Welcome to the Private Events!'
+      redirect_to @user
     else
       render 'new'
     end
