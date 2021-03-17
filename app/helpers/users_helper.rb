@@ -4,4 +4,10 @@ module UsersHelper
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
     image_tag(gravatar_url, alt: user.name, class: 'gravatar')
   end
+
+  def error_messages
+    if @user.errors.any?
+      render 'shared/display'
+    end
+  end
 end
