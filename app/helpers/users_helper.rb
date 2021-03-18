@@ -6,8 +6,6 @@ module UsersHelper
   end
 
   def error_messages
-    if @user.errors.any?
-      render 'shared/display'
-    end
+    render 'shared/display' if @user.errors.any?
   end
 end
