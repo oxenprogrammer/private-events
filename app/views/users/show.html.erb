@@ -7,4 +7,15 @@
       </h1>
     </section>
   </aside>
+  <article class="events col-md-4">
+    <% if @user.events.any? %>
+      <% @user.events.each do |event| %>
+        <ul>
+          <li><%= event.title %></li>
+        </ul>
+      <% end %>
+    <% else %>
+      <div class="no-event-yet">No Event Yet</div>
+    <% end %>
+  </article>
 </div>
