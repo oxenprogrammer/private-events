@@ -2,6 +2,7 @@
   <div class="row">
   
     <div class="col-md-6 col-md-offset-3">
+    <%= render 'event_errors_messages' %>
       <%= form_with(model: @event, local: true) do |f| %>
         <div class="field">
           <h4>Create New Event</h4>
