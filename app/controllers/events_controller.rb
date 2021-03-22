@@ -4,6 +4,11 @@ class EventsController < ApplicationController
     # @user = User.find(current_user.id)
   end
 
+  def show
+    @event = Event.find(params[:id])
+    @creator = User.find(@event.creator_id)
+  end
+
   def create
     @event = Event.new(event_params)
     @user = User.find(current_user.id)
@@ -12,7 +17,7 @@ class EventsController < ApplicationController
 
     @event.creator_id = @user.id
     if @event.save
-      redirect_to @event
+      redirect_to @user
     else
       render :new
     end

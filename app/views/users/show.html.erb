@@ -11,7 +11,7 @@
     <% if @user.events.any? %>
       <% @user.events.each do |event| %>
         <ul>
-          <li><%= event.title %></li>
+          <li><%= link_to event.title, event_path(event.id) %></li>
         </ul>
       <% end %>
     <% else %>
@@ -19,6 +19,6 @@
     <% end %>
   </article>
   <article class="event-form col-md-4">
-        <%= render "events/event_form" %>
+        <%= link_to "New Event", events_path %>
   </article>
 </div>
