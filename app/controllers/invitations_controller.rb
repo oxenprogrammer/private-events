@@ -10,15 +10,21 @@ class InvitationsController < ApplicationController
 
   def create
     @event = Event.find(params[:id])
-    old_invitee = User.find_by(email: params[:email])
 
-    if old_invitee
-      already_invited = Invitation.find_by(invitee_id: old_invitee.id)
-      @invitation = @event.invitations.build(invitee_id: old_invitee.id)
-      user_exist(already_invited, old_invitee, @invitation, @event)
-    else
-      flash[:danger] = 'User not found in the Database'
+    if current_user.id != @event.creator_id
+      flash[:warning] = 'You can only invite users to your own created event'
       render :new
+    else
+      old_invitee = User.find_by(email: params[:email])
+
+      if old_invitee
+        already_invited = Invitation.find_by(invitee_id: old_invitee.id)
+        @invitation = @event.invitations.build(invitee_id: old_invitee.id)
+        user_exist(already_invited, old_invitee, @invitation, @event)
+      else
+        flash[:danger] = 'User not found in the Database'
+        render :new
+      end
     end
   end
 
