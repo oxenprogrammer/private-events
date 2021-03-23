@@ -21,7 +21,7 @@ class EventsController < ApplicationController
 
     @event.creator_id = @user.id
     if @event.save
-      redirect_to @user
+      redirect_to event_url @event.id
     else
       render :new
     end

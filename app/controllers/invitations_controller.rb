@@ -1,6 +1,7 @@
 class InvitationsController < ApplicationController
   def new
     @invitation = Invitation.new
+    @event = Event.find(params[:id])
   end
 
   def show
