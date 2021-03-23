@@ -1,4 +1,9 @@
 class EventsController < ApplicationController
+  def index
+    @past_events = Event.find_past_events
+    @upcoming_events = Event.find_upcoming_events
+  end
+
   def new
     @event = Event.new
   end
