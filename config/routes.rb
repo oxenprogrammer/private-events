@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   get '/events/:id', to: 'events#show', as: 'event'
   post '/events', to: 'events#create'
 
-  get '/invitations', to: 'invitations#new'
-  get '/invitations/:id', to: 'invitations#show', as: 'invitation'
-  post '/invitations', to: 'invitations#create'
+  get '/events/:id/invitations/new', to: 'invitations#new', as: 'new_invitation'
+  post '/events/:id/invitations/new', to: 'invitations#create' 
 
 
   get '/signup', to: 'users#new'

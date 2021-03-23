@@ -1,7 +1,6 @@
 class EventsController < ApplicationController
   def new
     @event = Event.new
-    # @user = User.find(current_user.id)
   end
 
   def show
