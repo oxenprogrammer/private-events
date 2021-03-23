@@ -1,5 +1,5 @@
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-3">
     <section class="user_info">
       <h1>
         <%= gravatar_for @user %>
@@ -7,18 +7,15 @@
       </h1>
     </section>
   </aside>
-  <article class="events col-md-4">
-    <% if @user.events.any? %>
-      <% @user.events.each do |event| %>
-        <ul>
-          <li><%= link_to event.title, event_path(event.id) %></li>
-        </ul>
-      <% end %>
-    <% else %>
-      <div class="no-event-yet">No Event Yet</div>
-    <% end %>
+  <article class="events col-md-3 mt-4">
+    <h4>Past Events</h4>
+    <%= list_past_events(@past_events) %>
   </article>
-  <article class="event-form col-md-4">
-        <%= link_to "New Event", events_path %>
+  <article class="events col-md-3 mt-4">
+    <h4>Upcoming Events</h4>
+    <%= list_upcoming_events(@upcoming_events) %>
+  </article>
+  <article class="event-form col-md-3 mt-4">
+    <Button class="btn btn-success"><%= link_to "Add New Event", events_path, class: "text-white" %></Button>
   </article>
 </div>
