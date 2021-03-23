@@ -12,8 +12,6 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @user = User.find(current_user.id)
 
-    puts current_user.events.build
-
     @event.creator_id = @user.id
     if @event.save
       redirect_to @user
