@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @upcoming_events = Event.find_upcoming_events
 
     my_events = Event.where(creator_id: current_user.id)
-    @current_user_event = my_events || ['No Personal Events at the Moment']
+    @current_user_event = my_events || [{ title: 'No Personal Events at the Moment' }]
   end
 
   def create
