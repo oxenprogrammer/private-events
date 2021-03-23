@@ -28,6 +28,7 @@ To get a local copy up and running follow these simple example steps.
 - run `bundle install --with production` to install the dependencies
 - run `rails db:migrate` to migrate the database
 - run `rails db:seed` to seed the database with users that you can use to invite for events
+- run `rails t` to run tests
 - start a server with `rails s`
 
 ### Usage
