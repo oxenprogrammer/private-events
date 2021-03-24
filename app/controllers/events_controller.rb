@@ -16,10 +16,8 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
-    @user = User.find(current_user.id)
+    @event = current_user.events.build(event_params)
 
-    @event.creator_id = @user.id
     if @event.save
       redirect_to event_url @event.id
     else
