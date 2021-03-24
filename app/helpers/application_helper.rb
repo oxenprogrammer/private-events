@@ -21,7 +21,7 @@ module ApplicationHelper
 
   def navbar_link_home
     if logged_in?
-      link_to 'Private Events', user_url(current_user.id), class: 'navbar-brand'
+      link_to 'Private Events', events_all_url, class: 'navbar-brand'
     else
       link_to 'Private Events', root_url, class: 'navbar-brand'
     end
