@@ -32,4 +32,12 @@ module EventsHelper
       end
     end
   end
+
+  def new_invitation_button(due)
+    if due
+      ''
+    else
+      link_to 'Add New Invitation', new_invitation_url, class: 'text-white btn btn-warning'
+    end
+  end
 end

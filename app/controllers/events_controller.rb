@@ -13,6 +13,7 @@ class EventsController < ApplicationController
     @creator = User.find(@event.creator_id)
     @event_invitees = Invitation.list_invitees(@event)
     @invitees = Invitation.name_invitees(@event_invitees)
+    @due = true if @event.event_date < DateTime.now
   end
 
   def create
