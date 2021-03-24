@@ -8,7 +8,7 @@ module EventsHelper
       'There are no past events.'
     else
       content_tag :ul, class: 'd-flex flex-column' do
-        events.collect { |event| concat link_to event[0], event_path(event[1]) }
+        events.map { |event| concat link_to event[0], event_path(event[1]) }
       end
     end
   end
@@ -18,7 +18,7 @@ module EventsHelper
       'There are no upcoming events'
     else
       content_tag :ul, class: 'd-flex flex-column' do
-        events.collect { |event| concat link_to event[0], event_path(event[1]) }
+        events.map { |event| concat link_to event[0], event_path(event[1]) }
       end
     end
   end
@@ -28,7 +28,7 @@ module EventsHelper
       'There are no invitees yet'
     else
       content_tag :ul, class: 'd-flex flex-column' do
-        invitees.collect { |invitee| concat(content_tag(:li, invitee)) }
+        invitees.map { |invitee| concat(content_tag(:li, invitee)) }
       end
     end
   end
