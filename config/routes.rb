@@ -1,3 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'users#new'
+  get '/events', to: 'events#new'
+  get '/events/all', to: 'events#index'
+  get '/events/:id', to: 'events#show', as: 'event'
+  post '/events', to: 'events#create'
+
+  get '/events/:id/invitations/new', to: 'invitations#new', as: 'new_invitation'
+  post '/events/:id/invitations/new', to: 'invitations#create' 
+
+
+  get '/signup', to: 'users#new'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  resources :users
 end
