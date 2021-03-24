@@ -4,9 +4,10 @@ class Event < ApplicationRecord
   has_many :invitees, through: :invitations, source: :invitee
 
   before_save { self.desc = desc.downcase }
+  VRD = /([0-9]{4}-(0[1-9]|1[0-2])-([0-2]{1}[0-9]{1}|3[0-1]{1})|([0-2]{1}[0-9]{1}|3[0-1]{1})-(0[1-9]|1[0-2])-[0-9]{4})/
   validates :title, presence: true, length: { minimum: 3, maximum: 50 }
   validates :desc, presence: true, length: { minimum: 20, maximum: 300 }
-  validates :event_date, presence: true
+  validates :event_date, presence: true, format: { with: VRD }
 
   scope :past_events, -> { where('event_date < ?', DateTime.now) }
   scope :upcoming_events, -> { where('event_date > ?', DateTime.now) }
