@@ -15,9 +15,9 @@ User.create!(
 
 Event.create!(
   [
-    {title: 'First Event', desc: 'The Best Fashoin Show in Town', venue: 'Kampala', event_date: '2021-06-27 20:34:00.000000000 +0000', creator_id: 1},
-    {title: 'Dev Conference', desc: 'The Annual Ruby on Rails Conference', venue: 'Tokyo', event_date: '2021-07-27 20:34:00.000000000 +0000', creator_id: 2},
-    {title: 'PHP Past Conf', desc: 'Why PHP is still the best', venue: 'Pakistan', event_date: '2021-01-27 20:34:00.000000000 +0000', creator_id: 3},
-    {title: 'Lisp Conference', desc: 'The father of all Functional Programming', venue: 'USA', event_date: '2021-02-27 20:34:00.000000000 +0000', creator_id: 4},
+    {title: 'First Event', desc: 'The Best Fashoin Show in Town', venue: 'Kampala', event_date: '2021-06-27', event_time: '20:34:00.000000000 +0000', creator_id: 1},
+    {title: 'Dev Conference', desc: 'The Annual Ruby on Rails Conference', venue: 'Tokyo', event_date: '2021-07-27', event_time: '20:34:00.000000000 +0000', creator_id: 2},
+    {title: 'PHP Past Conf', desc: 'Why PHP is still the best', venue: 'Pakistan', event_date: '2021-01-27', event_time: '20:34:00.000000000 +0000', creator_id: 3},
+    {title: 'Lisp Conference', desc: 'The father of all Functional Programming', venue: 'USA', event_date: '2021-02-27', event_time: '20:34:00.000000000 +0000', creator_id: 4},
   ]
 )
