@@ -3,6 +3,10 @@ module ApplicationHelper
     link_to current_user.name, user_url(current_user.id), class: 'nav-link' if logged_in?
   end
 
+  def navbar_link_new_event
+    link_to 'Add New Event', events_path, class: 'text-white btn btn-success' if logged_in?
+  end
+
   def navbar_link_logout
     link_to 'Logout', logout_path, method: :delete, class: 'nav-link' if logged_in?
   end

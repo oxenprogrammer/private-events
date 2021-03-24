@@ -10,6 +10,10 @@ class UsersController < ApplicationController
 
     my_events = Event.where(creator_id: current_user.id)
     @current_user_event = my_events || [{ title: 'No Personal Events at the Moment' }]
+
+    my_attendance = Invitation.where(invitee_id: current_user.id).pluck(:event_id)
+    @current_user_attendance = Event.where(id: my_attendance)
+    @current_user_attendance
   end
 
   def create
